@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rahul Brahmbhatt — Technical Lead, Full-Stack &amp; Cloud</title>
+<meta name="description" content="Rahul Brahmbhatt — Technical Lead with 8+ years building scalable full-stack applications, AWS serverless architecture, and AI/LLM integrations.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --base:#ECE7F8;
+    --ink:#3A3563;
+    --ink-soft:#6B6694;
+    --peach:#FFCDB8;
+    --mint:#BDEBD6;
+    --sky:#BCD9FF;
+    --butter:#FFE8A6;
+    --lilac:#D9CCFA;
+    --rose:#FFC3D8;
+    --shadow-dark:rgba(150,140,200,.50);
+    --shadow-light:rgba(255,255,255,.95);
+    --disp:'Fredoka', system-ui, sans-serif;
+    --body:'Nunito', system-ui, sans-serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--base);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  a:focus-visible, button:focus-visible{outline:3px solid var(--ink); outline-offset:4px; border-radius:20px;}
+  ::selection{background:var(--lilac);}
+
+  /* ---------- clay primitives ---------- */
+  .clay{
+    background:var(--base);
+    border-radius:32px;
+    box-shadow:
+      14px 14px 30px var(--shadow-dark),
+      -12px -12px 26px var(--shadow-light),
+      inset -6px -6px 12px rgba(120,110,170,.10),
+      inset 6px 6px 12px rgba(255,255,255,.75);
+  }
+  .clay-sm{
+    border-radius:22px;
+    box-shadow:
+      8px 8px 16px var(--shadow-dark),
+      -6px -6px 14px var(--shadow-light),
+      inset -4px -4px 8px rgba(120,110,170,.10),
+      inset 4px 4px 8px rgba(255,255,255,.7);
+  }
+  .tint-peach{background:var(--peach);}
+  .tint-mint{background:var(--mint);}
+  .tint-sky{background:var(--sky);}
+  .tint-butter{background:var(--butter);}
+  .tint-lilac{background:var(--lilac);}
+  .tint-rose{background:var(--rose);}
+
+  .wrap{max-width:1100px; margin:0 auto; padding:0 28px; position:relative;}
+
+  /* ---------- nav ---------- */
+  header{position:sticky; top:16px; z-index:50; padding:0 20px;}
+  nav{
+    max-width:1060px; margin:16px auto 0; padding:12px 14px 12px 26px;
+    display:flex; align-items:center; justify-content:space-between;
+    border-radius:60px;
+  }
+  .logo{font-family:var(--disp); font-weight:600; font-size:1.2rem;}
+  .logo span{color:#8F6BF0;}
+  .navlinks{display:flex; gap:8px;}
+  .navlinks a{
+    font-family:var(--disp); font-weight:500; font-size:.95rem;
+    padding:9px 18px; border-radius:30px; color:var(--ink-soft);
+    transition:all .2s ease;
+  }
+  .navlinks a:hover{
+    color:var(--ink); background:var(--base);
+    box-shadow:5px 5px 10px var(--shadow-dark), -4px -4px 9px var(--shadow-light);
+  }
+  @media (max-width:680px){ .navlinks{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 60px; position:relative;}
+  .blob{position:absolute; border-radius:50%; z-index:0; animation:float 7s ease-in-out infinite;}
+  .blob.b1{width:130px; height:130px; top:20px; right:5%; background:var(--peach);
+    box-shadow:10px 10px 22px var(--shadow-dark), -8px -8px 18px var(--shadow-light), inset -8px -8px 14px rgba(200,120,90,.2), inset 8px 8px 14px rgba(255,255,255,.6);}
+  .blob.b2{width:84px; height:84px; bottom:90px; left:-10px; background:var(--mint); animation-delay:-2s;
+    box-shadow:8px 8px 18px var(--shadow-dark), -6px -6px 14px var(--shadow-light), inset -6px -6px 12px rgba(60,160,120,.2), inset 6px 6px 12px rgba(255,255,255,.6);}
+  .blob.b3{width:56px; height:56px; top:55%; right:-6px; background:var(--butter); animation-delay:-4s;
+    box-shadow:6px 6px 14px var(--shadow-dark), -5px -5px 11px var(--shadow-light), inset -5px -5px 9px rgba(200,160,40,.25), inset 5px 5px 9px rgba(255,255,255,.6);}
+  @keyframes float{0%,100%{transform:translateY(0);} 50%{transform:translateY(-16px);}}
+
+  .hero-card{position:relative; z-index:1; padding:56px 52px 52px; border-radius:48px;}
+  @media (max-width:640px){ .hero-card{padding:36px 24px;} }
+
+  .badge{
+    display:inline-flex; align-items:center; gap:10px; padding:9px 18px 9px 14px;
+    font-family:var(--disp); font-weight:500; font-size:.9rem; margin-bottom:26px;
+  }
+  .badge i{width:12px; height:12px; border-radius:50%; background:#3FCF8E; box-shadow:0 0 0 4px rgba(63,207,142,.25); animation:pulse 2s ease-in-out infinite;}
+  @keyframes pulse{50%{box-shadow:0 0 0 8px rgba(63,207,142,0);}}
+
+  @keyframes riseIn{from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:translateY(0);}}
+  .rise{opacity:0; animation:riseIn .85s cubic-bezier(.16,.9,.28,1) forwards;}
+
+  h1{
+    font-family:var(--disp); font-weight:700; letter-spacing:-.02em; line-height:1.02;
+    font-size:clamp(2.6rem, 7vw, 4.6rem);
+  }
+  .role{
+    margin-top:14px; font-family:var(--disp); font-weight:500;
+    font-size:clamp(1.15rem, 2.6vw, 1.6rem); color:#7B56E6;
+  }
+  .lede{margin-top:20px; max-width:56ch; color:var(--ink-soft); font-size:1.08rem; font-weight:600;}
+
+  .chips{margin-top:28px; display:flex; flex-wrap:wrap; gap:12px;}
+  .chip{font-family:var(--disp); font-weight:500; font-size:.88rem; padding:8px 16px; border-radius:30px;
+    box-shadow:5px 5px 10px var(--shadow-dark), -4px -4px 9px var(--shadow-light), inset -3px -3px 6px rgba(0,0,0,.05), inset 3px 3px 6px rgba(255,255,255,.6);}
+
+  .stats{margin-top:38px; display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  @media (max-width:700px){ .stats{grid-template-columns:repeat(2,1fr);} }
+  .stat{padding:20px 16px; text-align:center;}
+  .stat .n{font-family:var(--disp); font-weight:700; font-size:1.9rem; line-height:1.1;}
+  .stat .l{font-size:.78rem; font-weight:800; color:var(--ink-soft); margin-top:6px; text-transform:uppercase; letter-spacing:.05em;}
+
+  .cta{margin-top:36px; display:flex; flex-wrap:wrap; gap:16px;}
+  .btn{
+    font-family:var(--disp); font-weight:600; font-size:1rem; padding:15px 30px; border-radius:40px; display:inline-block;
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-main{
+    background:#8F6BF0; color:#fff;
+    box-shadow:8px 8px 18px rgba(110,80,200,.45), -6px -6px 14px var(--shadow-light), inset -5px -5px 10px rgba(60,30,140,.3), inset 5px 5px 10px rgba(255,255,255,.3);
+  }
+  .btn-soft{
+    background:var(--base); color:var(--ink);
+    box-shadow:8px 8px 16px var(--shadow-dark), -6px -6px 14px var(--shadow-light), inset -4px -4px 8px rgba(120,110,170,.10), inset 4px 4px 8px rgba(255,255,255,.7);
+  }
+  .btn:hover{transform:translateY(-3px);}
+  .btn:active{transform:translateY(1px) scale(.98);}
+
+  /* ---------- sections ---------- */
+  section{padding:80px 0;}
+  .eyebrow{
+    display:inline-block; font-family:var(--disp); font-weight:600; font-size:.85rem; padding:7px 16px; border-radius:30px; margin-bottom:16px;
+    color:var(--ink-soft);
+    box-shadow:5px 5px 10px var(--shadow-dark), -4px -4px 9px var(--shadow-light), inset -3px -3px 6px rgba(0,0,0,.04), inset 3px 3px 6px rgba(255,255,255,.7);
+  }
+  .sec-title{font-family:var(--disp); font-weight:700; font-size:clamp(1.9rem,4vw,2.8rem); letter-spacing:-.01em; line-height:1.1;}
+  .sec-sub{margin-top:12px; color:var(--ink-soft); max-width:58ch; font-weight:600;}
+
+  /* ---------- capabilities ---------- */
+  .cap-grid{margin-top:48px; display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+  @media (max-width:960px){ .cap-grid{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:560px){ .cap-grid{grid-template-columns:1fr;} }
+  .cap{padding:26px 22px; border-radius:30px; transition:transform .25s ease;
+    box-shadow:12px 12px 24px var(--shadow-dark), -10px -10px 22px var(--shadow-light), inset -6px -6px 12px rgba(0,0,0,.07), inset 6px 6px 12px rgba(255,255,255,.55);}
+  .cap:hover{transform:translateY(-6px) rotate(-.5deg);}
+  .cap-ico{
+    width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; margin-bottom:16px;
+    background:rgba(255,255,255,.55);
+    box-shadow:inset 3px 3px 7px rgba(0,0,0,.08), inset -3px -3px 7px rgba(255,255,255,.8);
+  }
+  .cap h3{font-family:var(--disp); font-weight:600; font-size:1.15rem; margin-bottom:12px;}
+  .tags{display:flex; flex-wrap:wrap; gap:7px;}
+  .tag{font-size:.76rem; font-weight:800; padding:5px 11px; border-radius:20px; background:rgba(255,255,255,.6); color:var(--ink);}
+
+  /* ---------- experience ---------- */
+  .timeline{margin-top:52px; position:relative; display:flex; flex-direction:column; gap:32px;}
+  .job{padding:32px 34px; display:grid; grid-template-columns:200px 1fr; gap:28px; border-radius:36px;}
+  @media (max-width:760px){ .job{grid-template-columns:1fr; padding:26px 22px; gap:14px;} }
+  .job-when{font-family:var(--disp); font-weight:500; color:var(--ink-soft); font-size:.95rem;}
+  .job-when .org{display:block; color:#7B56E6; font-weight:600; font-size:1.05rem; margin-top:6px;}
+  .pill-live{display:inline-block; margin-top:12px; font-family:var(--disp); font-weight:600; font-size:.75rem; padding:5px 12px; border-radius:20px; background:var(--mint); color:#1E6B4A;
+    box-shadow:inset 2px 2px 5px rgba(255,255,255,.7), inset -2px -2px 5px rgba(40,140,100,.2);}
+  .job h3{font-family:var(--disp); font-weight:600; font-size:1.35rem; margin-bottom:14px;}
+  .job ul{list-style:none; display:flex; flex-direction:column; gap:10px;}
+  .job li{position:relative; padding-left:26px; color:var(--ink-soft); font-weight:600; font-size:.97rem;}
+  .job li::before{
+    content:''; position:absolute; left:0; top:.55em; width:12px; height:12px; border-radius:50%; background:var(--peach);
+    box-shadow:2px 2px 4px var(--shadow-dark), inset -2px -2px 3px rgba(200,100,70,.3), inset 2px 2px 3px rgba(255,255,255,.7);
+  }
+
+  /* ---------- projects ---------- */
+  .proj-grid{margin-top:48px; display:grid; grid-template-columns:repeat(2,1fr); gap:30px;}
+  @media (max-width:780px){ .proj-grid{grid-template-columns:1fr;} }
+  .proj{padding:30px 28px; border-radius:36px; display:flex; flex-direction:column; gap:14px; transition:transform .25s ease;
+    box-shadow:14px 14px 28px var(--shadow-dark), -12px -12px 24px var(--shadow-light), inset -7px -7px 14px rgba(0,0,0,.07), inset 7px 7px 14px rgba(255,255,255,.55);}
+  .proj:hover{transform:translateY(-6px);}
+  .proj-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap;}
+  .proj h3{font-family:var(--disp); font-weight:600; font-size:1.3rem;}
+  .proj-link{
+    font-family:var(--disp); font-weight:500; font-size:.82rem; padding:8px 14px; border-radius:22px; background:rgba(255,255,255,.65); white-space:nowrap;
+    box-shadow:4px 4px 8px rgba(0,0,0,.08), -3px -3px 7px rgba(255,255,255,.7); transition:transform .2s ease;
+  }
+  .proj-link:hover{transform:translateY(-2px);}
+  .proj p{font-weight:600; color:var(--ink); opacity:.78; font-size:.96rem; flex:1;}
+
+  /* ---------- contact ---------- */
+  .contact{padding:60px 44px; text-align:center; border-radius:56px;}
+  @media (max-width:600px){ .contact{padding:40px 22px;} }
+  .contact .sec-sub{margin-left:auto; margin-right:auto;}
+  .links{margin-top:34px; display:flex; flex-wrap:wrap; gap:18px; justify-content:center;}
+  .clink{font-family:var(--disp); font-weight:500; font-size:.95rem; padding:14px 24px; border-radius:36px; background:var(--base); transition:transform .2s ease;
+    box-shadow:8px 8px 16px var(--shadow-dark), -6px -6px 14px var(--shadow-light), inset -4px -4px 8px rgba(120,110,170,.10), inset 4px 4px 8px rgba(255,255,255,.7);}
+  .clink:hover{transform:translateY(-3px);}
+
+  /* ---------- footer ---------- */
+  footer{padding:30px 0 56px;}
+  .foot{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; padding:30px 32px; border-radius:36px;}
+  @media (max-width:780px){ .foot{grid-template-columns:1fr;} }
+  .foot strong{display:block; font-family:var(--disp); font-weight:600; margin-bottom:6px;}
+  .foot div{font-size:.9rem; font-weight:600; color:var(--ink-soft);}
+  .copy{text-align:center; margin-top:28px; font-size:.85rem; font-weight:700; color:var(--ink-soft);}
+
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:none;}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .blob, .badge i{animation:none;}
+    .rise{animation:none; opacity:1;}
+    .reveal{opacity:1; transform:none; transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="clay">
+    <div class="logo">rahul<span>.</span>b</div>
+    <div class="navlinks">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="wrap hero">
+    <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+    <div class="hero-card clay">
+      <div class="badge clay-sm rise" style="animation-delay:.05s"><i></i>Technical Lead @ Growexx</div>
+      <h1 class="rise" style="animation-delay:.15s">Rahul Brahmbhatt</h1>
+      <div class="role rise" style="animation-delay:.3s">Technical Lead — Full-Stack &amp; Cloud</div>
+      <p class="lede rise" style="animation-delay:.42s">8+ years designing and shipping Node.js/React systems, AWS serverless architecture, and AI/LLM-powered features for SaaS, e-commerce, and ERP products.</p>
+
+      <div class="chips rise" style="animation-delay:.54s">
+        <span class="chip tint-peach">📍 Ahmedabad, India</span>
+        <span class="chip tint-mint">Node.js</span>
+        <span class="chip tint-sky">React / Next.js</span>
+        <span class="chip tint-butter">AWS</span>
+        <span class="chip tint-rose">AI / LLM</span>
+      </div>
+
+      <div class="stats rise" style="animation-delay:.66s">
+        <div class="stat clay-sm tint-peach"><div class="n">8+</div><div class="l">Years Experience</div></div>
+        <div class="stat clay-sm tint-mint"><div class="n">5–7</div><div class="l">Engineers Led</div></div>
+        <div class="stat clay-sm tint-sky"><div class="n">4</div><div class="l">Companies</div></div>
+        <div class="stat clay-sm tint-butter"><div class="n">AWS</div><div class="l">Certified Architect</div></div>
+      </div>
+
+      <div class="cta rise" style="animation-delay:.78s">
+        <a class="btn btn-main" href="#projects">View projects</a>
+        <a class="btn btn-soft" href="#contact">Get in touch</a>
+        <a class="btn btn-soft" href="https://github.com/rahul.softwareartisan" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="capabilities" class="wrap reveal">
+    <span class="eyebrow">Capabilities</span>
+    <h2 class="sec-title">What I build with</h2>
+    <p class="sec-sub">Core skill areas, proven across production SaaS, ERP, and e-commerce platforms.</p>
+
+    <div class="cap-grid">
+      <div class="cap tint-sky">
+        <div class="cap-ico">⚙️</div><h3>APIs &amp; Services</h3>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">NestJS</span><span class="tag">GraphQL</span><span class="tag">REST</span></div>
+      </div>
+      <div class="cap tint-peach">
+        <div class="cap-ico">🖥️</div><h3>Client Applications</h3>
+        <div class="tags"><span class="tag">React</span><span class="tag">Next.js</span><span class="tag">Angular</span><span class="tag">Vue.js</span><span class="tag">TypeScript</span></div>
+      </div>
+      <div class="cap tint-mint">
+        <div class="cap-ico">☁️</div><h3>Cloud &amp; Infrastructure</h3>
+        <div class="tags"><span class="tag">AWS Lambda</span><span class="tag">API Gateway</span><span class="tag">S3</span><span class="tag">Docker</span><span class="tag">CI/CD</span></div>
+      </div>
+      <div class="cap tint-butter">
+        <div class="cap-ico">🗄️</div><h3>Storage &amp; Search</h3>
+        <div class="tags"><span class="tag">PostgreSQL</span><span class="tag">MySQL</span><span class="tag">MongoDB</span><span class="tag">Elasticsearch</span></div>
+      </div>
+      <div class="cap tint-lilac">
+        <div class="cap-ico">🤖</div><h3>AI &amp; LLM Integration</h3>
+        <div class="tags"><span class="tag">Prompt Engineering</span><span class="tag">Claude 3</span><span class="tag">MCP</span><span class="tag">LLM Workflows</span></div>
+      </div>
+      <div class="cap tint-rose">
+        <div class="cap-ico">🛡️</div><h3>Security &amp; Compliance</h3>
+        <div class="tags"><span class="tag">SOC 2</span><span class="tag">VPAT</span><span class="tag">Burp Suite</span><span class="tag">API Hardening</span></div>
+      </div>
+      <div class="cap tint-sky">
+        <div class="cap-ico">💳</div><h3>Billing Systems</h3>
+        <div class="tags"><span class="tag">Stripe</span><span class="tag">Chargebee</span><span class="tag">Webhooks</span><span class="tag">Subscriptions</span></div>
+      </div>
+      <div class="cap tint-peach">
+        <div class="cap-ico">✅</div><h3>Quality &amp; Reliability</h3>
+        <div class="tags"><span class="tag">Jest</span><span class="tag">Mocha</span><span class="tag">TDD</span><span class="tag">Postman</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="wrap reveal">
+    <span class="eyebrow">Experience</span>
+    <h2 class="sec-title">Where I've worked</h2>
+    <p class="sec-sub">Four roles, one throughline: taking systems from idea to production and keeping them running.</p>
+
+    <div class="timeline">
+      <article class="job clay">
+        <div class="job-when">Oct 2024 — Present<span class="org">Growexx Pvt. Ltd.</span><span class="pill-live">● Current role</span></div>
+        <div>
+          <h3>Technical Lead</h3>
+          <ul>
+            <li>Architect scalable web application infrastructure and design RESTful &amp; GraphQL APIs across multiple concurrent product streams.</li>
+            <li>Lead a team of 5–7 engineers — set coding standards, run code reviews, unblock technical challenges.</li>
+            <li>Own end-to-end client communication: requirement gathering, sprint demos, stakeholder updates.</li>
+            <li>Evaluate and integrate emerging AI/LLM capabilities into product features to automate business workflows.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job clay">
+        <div class="job-when">Mar 2021 — Oct 2024<span class="org">Simform Solutions LLC</span></div>
+        <div>
+          <h3>Senior MEAN Stack Developer</h3>
+          <ul>
+            <li>Built full-stack features across 4 major products — SaaS platforms, social tools, e-commerce sites.</li>
+            <li>Designed serverless AWS architectures (Lambda, API Gateway, S3), cutting infrastructure cost ~30% vs. EC2.</li>
+            <li>Integrated Stripe and Chargebee for subscription billing, proration, and webhook processing.</li>
+            <li>Authored Jest/Mocha test suites reaching &gt;80% coverage on critical services.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job clay">
+        <div class="job-when">Jan 2018 — Feb 2021<span class="org">Echoinnovate IT Pvt. Ltd.</span></div>
+        <div>
+          <h3>MEAN Stack Developer</h3>
+          <ul>
+            <li>Led a backend team of 4 — owned sprint planning, estimation, and technical decisions for core APIs.</li>
+            <li>Built RESTful APIs for web and mobile clients, averaging &lt;200ms latency in production.</li>
+            <li>Implemented RabbitMQ event queues for async processing, improving resilience and throughput.</li>
+            <li>Refactored a monolithic system into a modular, service-oriented architecture.</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="job clay">
+        <div class="job-when">Jan 2016 — Dec 2017<span class="org">Creart Solutions</span></div>
+        <div>
+          <h3>Software Developer</h3>
+          <ul>
+            <li>Built a university ERP portal handling enrollment, fees, attendance, and results for 5,000+ students.</li>
+            <li>Shipped a barcode-scanning attendance system, cutting manual effort ~70%.</li>
+            <li>Implemented role-based access control for Admin, Faculty, and Student user types.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projects" class="wrap reveal">
+    <span class="eyebrow">Projects</span>
+    <h2 class="sec-title">Selected work</h2>
+    <p class="sec-sub">Products shipped to production, spanning AI workflow automation, live-bid marketplaces, and data platforms.</p>
+
+    <div class="proj-grid">
+      <div class="proj tint-lilac">
+        <div class="proj-top"><h3>AI-Driven Workflow Builder</h3><a class="proj-link" href="https://firmprofit.ai" target="_blank" rel="noopener">firmprofit.ai ↗</a></div>
+        <p>No-code automation platform where Claude 3 analyzes process inputs to auto-generate and optimize business workflow logic, on a NestJS microservices backend.</p>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">NestJS</span><span class="tag">Next.js</span><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">Claude 3</span><span class="tag">AWS</span></div>
+      </div>
+
+      <div class="proj tint-peach">
+        <div class="proj-top"><h3>Auction Mobility</h3><a class="proj-link" href="https://www.auctionmobility.com" target="_blank" rel="noopener">auctionmobility.com ↗</a></div>
+        <p>White-labeled SaaS auction platform for global auctioneers, handling live, high-concurrency bid events without data loss via RabbitMQ.</p>
+        <div class="tags"><span class="tag">TypeScript</span><span class="tag">Angular</span><span class="tag">Python</span><span class="tag">LLM</span><span class="tag">Docker</span><span class="tag">RabbitMQ</span></div>
+      </div>
+
+      <div class="proj tint-mint">
+        <div class="proj-top"><h3>Equilo</h3><a class="proj-link" href="https://www.equilo.io" target="_blank" rel="noopener">equilo.io ↗</a></div>
+        <p>Gender-equity analytics platform for corporates and fund managers. Claude 3 generates narrative insights from raw equity data, automating analyst-level reporting.</p>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Vue.js</span><span class="tag">Airtable</span><span class="tag">Claude 3</span></div>
+      </div>
+
+      <div class="proj tint-sky">
+        <div class="proj-top"><h3>Heard</h3><a class="proj-link" href="https://www.useheard.com" target="_blank" rel="noopener">useheard.com ↗</a></div>
+        <p>Social media analytics for music artists — aggregates cross-platform metrics with React dashboards tracking fan growth and monetization.</p>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">React</span><span class="tag">REST APIs</span></div>
+      </div>
+
+      <div class="proj tint-butter" style="grid-column:1 / -1;">
+        <div class="proj-top"><h3>AZIZI Developments</h3><a class="proj-link" href="https://azizidevelopments.com" target="_blank" rel="noopener">azizidevelopments.com ↗</a></div>
+        <p>Multilingual (Arabic/English) real-estate portal for one of Dubai's largest developers, with online booking flows and CRM notifications.</p>
+        <div class="tags"><span class="tag">Node.js</span><span class="tag">Angular</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap reveal">
+    <div class="contact clay">
+      <span class="eyebrow">Contact</span>
+      <h2 class="sec-title">Let's build something reliable</h2>
+      <p class="sec-sub">Open to technical leadership, full-stack, and AI/LLM integration conversations.</p>
+      <div class="links">
+        <a class="clink tint-peach" href="mailto:rahul.softwareartisan@gmail.com">✉ rahul.softwareartisan@gmail.com</a>
+        <a class="clink tint-mint" href="tel:+9199097*****">☎ +91 99097 ***97</a>
+        <a class="clink tint-sky" href="https://github.com/rahul.softwareartisan" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="clink tint-butter" href="https://rahulweb.netlify.app" target="_blank" rel="noopener">rahulweb.netlify.app ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <div class="foot clay">
+    <div><strong>Education</strong>M.Sc. Computer Applications &amp; IT — KS School of Business Management, Ahmedabad (2016–2018)</div>
+    <div><strong>Certification</strong>AWS Certified Solutions Architect — Associate</div>
+    <div><strong>Languages</strong>English (Professional) · Hindi (Native) · Gujarati (Native)</div>
+  </div>
+  <div class="copy">© 2026 Rahul Brahmbhatt · Ahmedabad, India</div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
